@@ -11,6 +11,10 @@ subtrees:
     - file: orga
     - file: clients
     - file: contributing
+- caption: Examples
+  entries:
+  - url: https://github.com/ROCm/hipBLAS/tree/develop/clients/samples
+    title: hipBLAS client examples
 - caption: API Reference
   entries:
     - file: functions
