@@ -9,13 +9,13 @@ hipBLAS documentation
 ********************************************************************
 
 hipBLAS is a Basic Linear Algebra Subprograms (BLAS) marshaling library with
-support for multiple backends. It sits between the application and a "worker" BLAS library,
+support for multiple backends. It lies between the application and a "worker" BLAS library,
 marshalling inputs into the backend library and results back to the application.
 hipBLAS exports an interface that does not require client changes, regardless of the
-chosen backend. Currently, it supports :ref:`rocBLAS <rocblas:index>`_ and
+chosen backend. Currently, it supports :doc:`rocBLAS <rocblas:index>` and
 NVIDIA CUDA `cuBLAS <https://developer.nvidia.com/cublas>`_ as backends.
 
-The hipBLAS public repository is located at  `https://github.com/ROCm/hipBLAS`.
+The hipBLAS public repository is located at  `<https://github.com/ROCm/hipBLAS>`_.
 
 .. grid:: 2
   :gutter: 3
@@ -35,8 +35,8 @@ The hipBLAS public repository is located at  `https://github.com/ROCm/hipBLAS`.
   
   .. grid-item-card:: How to
 
-    * :ref:`hipblas-clients`
-    * :ref:`contribute`
+    * :doc:`Use hipBLAS clients <./how-to/using-hipblas-clients>`
+    * :doc:`Contribute to hipBLAS <./how-to/contributing-to-hipblas>`
 
   .. grid-item-card:: Examples
 
@@ -44,8 +44,8 @@ The hipBLAS public repository is located at  `https://github.com/ROCm/hipBLAS`.
 
   .. grid-item-card:: API Reference
 
-    * :ref:`api_label`
-    * :ref:`deprecations`
+    * :doc:`hipBLAS API <./reference/hipblas-api-functions>`
+    * :doc:`Deprecations by version <./reference/deprecation>`
 
 To contribute to the documentation, see
 `Contributing to ROCm <https://rocm.docs.amd.com/en/latest/contribute/contributing.html>`_.

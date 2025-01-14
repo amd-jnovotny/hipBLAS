@@ -10,12 +10,14 @@ Library source code organization
 
 The hipBLAS code is split into several parts:
 
-* The ``library`` directory, which contains all source code for the library.
-* The ``clients`` directory, which contains all test code and the code to build clients.
+* The ``library`` directory, which contains all source code for the library
+* The ``clients`` directory, which contains all test code and the code to build clients
 * Infrastructure
 
 The library directory
 --------------------------
+
+The ``library`` directory includes the following subdirectories.
 
 library/include
 ^^^^^^^^^^^^^^^^^
@@ -26,12 +28,12 @@ comments that document the API.
 library/src/amd_detail
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Implementation of the hipBLAS interface which is compatible with rocBLAS APIs.
+Implementation of the hipBLAS interface, which is compatible with the rocBLAS APIs.
 
 library/src/nvidia_detail
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Implementation of the hipBLAS interface which is compatible with cuBLAS-v2 APIs.
+Implementation of the hipBLAS interface, which is compatible with the cuBLAS-v2 APIs.
 
 library/src/include
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -41,15 +43,19 @@ Internal include files for converting C++ exceptions to hipBLAS statuses.
 The clients directory
 -----------------------
 
+The ``clients`` directory includes the following subdirectories.
+
 clients/gtest
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Code for the hipblas-test client. This client is used to test hipBLAS. See :ref:`hipblas-clients` for more information. 
+Code for the hipblas-test client. This client is used to test hipBLAS. For
+more information, see :ref:`hipblas-clients`. 
 
 clients/benchmarks
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Code for the hipblas-bench client. This client is used to benchmark hipBLAS functions. See :ref:`hipblas-clients` for more information. 
+Code for the hipblas-bench client. This client is used to benchmark hipBLAS functions.
+For more information, see :ref:`hipblas-clients`. 
 
 clients/include
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -64,14 +70,16 @@ Common code used by both hipblas-bench and hipblas-test.
 clients/samples
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Sample code for calling hipBLAS functions.
+Sample code demonstrating how to call hipBLAS functions.
 
 Infrastructure
 --------------
 
+The following utilities support the hipBLAS infrastructure:
+
 *  CMake is used to build and package hipBLAS. There are ``CMakeLists.txt`` files throughout the code.
-*  Doxygen, Breathe, Sphinx, and ReadTheDocs are used to generate the documentation. Content for the documentation is taken from
-   the following sources:
+*  Doxygen, Breathe, Sphinx, and ReadTheDocs are used to generate the documentation. The following sources supply
+   content for the documentation:
 
    *  Doxygen comments in the include files in the ``library/include`` directory 
    *  Files in the ``docs`` directory

@@ -5,7 +5,7 @@
 .. _windows-install:
 
 ***********************************
-Installing and Building for Windows
+Installing and building for Windows
 ***********************************
 
 This topic covers how to install hipBLAS on Windows from a package and how to build and install it from the source code.
@@ -13,7 +13,7 @@ This topic covers how to install hipBLAS on Windows from a package and how to bu
 Installing pre-built packages
 =============================
 
-hipBLAS can be installed on Windows 11 or Windows 10 using the AMD HIP SDK installer.
+hipBLAS can be installed on Windows 10 or 11 using the AMD HIP SDK installer.
 
 The simplest way to use hipBLAS in your code is to use CMake. To install hipBLAS on Windows, follow these steps:
 
@@ -24,12 +24,12 @@ The simplest way to use hipBLAS in your code is to use CMake. To install hipBLAS
       -DCMAKE_PREFIX_PATH="C:\hipSDK"
 
 
-#. Add the following lines to ``CMakeLists.txt```:
+#. Add the following lines to ``CMakeLists.txt``:
 
-::
+   ::
 
-    find_package(hipblas)
-    target_link_libraries( your_exe PRIVATE roc::hipblas )
+      find_package(hipblas)
+      target_link_libraries( your_exe PRIVATE roc::hipblas )
 
 Building and installing hipBLAS
 ===============================
@@ -37,12 +37,12 @@ Building and installing hipBLAS
 Most users do not need to build hipBLAS from source because it can be used after installing the pre-built packages as described above.
 If necessary, users can follow these instructions to build hipBLAS from source.
 
-Download the hipBLAS Source Code
+Download the hipBLAS source code
 --------------------------------
 
-The hipBLAS source code is available on the `hipBLAS github <https://github.com/ROCm/hipBLAS>`_.
+The hipBLAS source code is available on the `hipBLAS GitHub <https://github.com/ROCm/hipBLAS>`_.
 The version of the ROCm HIP SDK might be shown in the default installation path,
-but you can run the HIP SDK compiler to report the version from the ``bin/`` folder:
+but you can run the HIP SDK compiler to display the version from the ``bin/`` folder:
 
 ::
 
@@ -74,56 +74,20 @@ The root of the hipBLAS repository includes a helper Python script named ``rmake
 with a single command. It accepts several options but has a hard-coded configuration
 that you can override by invoking ``cmake`` directly. However, it's a great way to get started quickly and serves
 as an example of how to build and install hipBLAS.
-A few commands in the script require ``sudo`` access so it might prompt you for a password.
+A few commands in the script require administrator access, so it might prompt you for a password.
 
 Common examples showing how to use ``rmake.py`` to build the library dependencies and library are listed
-in the table below.
+in this table:
 
-.. tabularcolumns::
-   |\X{1}{4}|\X{3}{4}|
+.. csv-table::
+   :header: "Command","Description"
+   :widths: 30, 100
 
-+-------------------------------------------+----------------------------+
-|  Command                                  | Description                |
-+===========================================+============================+
-| ``python3 rmake.py -h``                   | Help information.          |
-+-------------------------------------------+----------------------------+
-| ``python3 rmake.py -d``                   | Build the library          |
-|                                           | dependencies and library   |
-|                                           | in your local directory.   |
-|                                           | The ``-d`` flag only has   |
-|                                           | to be used once. For       |
-|                                           | subsequent invocations     |
-|                                           | of ``rmake.py`` it's not   |
-|                                           | necessary to rebuild the   |
-|                                           | dependencies.              |
-+-------------------------------------------+----------------------------+
-| ``python3 rmake.py``                      | Build thelibrary in your   |
-|                                           | local directory. It is     |
-|                                           | assumed dependencies       |
-|                                           | have been built.           |
-+-------------------------------------------+----------------------------+
-| ``python3 rmake.py -i``                   | Build library, then        |
-|                                           | build and install the      |
-|                                           | hipBLAS package in         |
-|                                           | ``C:\\hipSDK``. You        |
-|                                           | will be prompted for       |
-|                                           | admin access. This will    |
-|                                           | install itfor all users.   |
-|                                           | If you want to restrict    |
-|                                           | hipBLAS to your local      |
-|                                           | directory, do not          |
-|                                           | use the ``-i`` flag.       |
-+-------------------------------------------+----------------------------+
-| ``python3 rmake.py -n``                   | Build the library without  |
-|                                           | the functionality provided |
-|                                           | by rocSOLVER.              |
-|                                           | rocSOLVER, rocSPARSE,      |
-|                                           | and rocPRIM dependencies   |
-|                                           | will not be required.      |
-|                                           | This flag has no effect    |
-|                                           | when building with a CUDA  |
-|                                           | backend.                   |
-+-------------------------------------------+----------------------------+
+   "``python3 rmake.py -h``", "Help information."
+   "``python3 rmake.py -d``", "Build the library dependencies and library in your local directory. The ``-d`` flag only has to be used once. For subsequent invocations of ``rmake.py`` it's not necessary to rebuild the dependencies."
+   "``python3 rmake.py``", "Build the library in your local directory. It is assumed the dependencies have been built."
+   "``python3 rmake.py -i``", "Build the library, then build and install the hipBLAS package in ``C:\\hipSDK``. You will be prompted for admin access. This installs it for all users. To restrict hipBLAS to your local directory, do not use the ``-i`` flag."
+   "``python3 rmake.py -n``", "Build the library without the functionality provided by rocSOLVER. The rocSOLVER, rocSPARSE, and rocPRIM dependencies will not be required. This flag has no effect when building with a CUDA backend."
 
 
 Building the library, client, and library and client dependencies
@@ -142,79 +106,37 @@ hipblas-example-* Various examples showing how to use hipBLAS
 Common ways to use ``rmake.py`` to build the dependencies, library, and client are
 listed in this table.
 
-.. tabularcolumns::
-   |\X{1}{4}|\X{3}{4}|
+.. csv-table::
+   :header: "Command","Description"
+   :widths: 33, 97
 
-+-------------------------------------------+------------------------------+
-| Command                                   | Description                  |
-+===========================================+==============================+
-| ``python3 rmake.py -dc``                  | Build the library            |
-|                                           | dependencies, client         |
-|                                           | dependencies, library,       |
-|                                           | and client in your local     |
-|                                           | directory. The ``-d`` flag   |
-|                                           | only has to be used          |
-|                                           | once. For subsequent         |
-|                                           | invocations of               |
-|                                           | ``rmake.py``, it is not      |
-|                                           | necessary to rebuild the     |
-|                                           | dependencies.                |
-+-------------------------------------------+------------------------------+
-| ``python3 rmake.py -c``                   | Build the library and client |
-|                                           | in your local directory.     |
-|                                           | It is assumed the            |
-|                                           | dependencies have been       |
-|                                           | built.                       |
-+-------------------------------------------+------------------------------+
-| ``python3 rmake.py -idc``                 | Build the library            |
-|                                           | dependencies, client         |
-|                                           | dependencies, library,       |
-|                                           | and client, then build and   |
-|                                           | install the hipBLAS          |
-|                                           | package. You will be         |
-|                                           | prompted for admin           |
-|                                           | access. To install           |
-|                                           | hipBLAS for all users,       |
-|                                           | use the ``-i`` flag.         |
-|                                           | To restrict hipBLAS          |
-|                                           | to your local directory,     |
-|                                           | do not use the ``-i``        |
-|                                           | flag.                        |
-+-------------------------------------------+------------------------------+
-| ``python3 rmake.py -ic``                  | Build and install the        |
-|                                           | hipBLAS package and          |
-|                                           | build the client. You        |
-|                                           | will be prompted for         |
-|                                           | sudo access. This will       |
-|                                           | install it for all users.    |
-|                                           | To restrict hipBLAS          |
-|                                           | to your local directory,     |
-|                                           | do not use the ``-i``        |
-|                                           | flag.                        |
-+-------------------------------------------+------------------------------+
+   "``python3 rmake.py -dc``", "Build the library dependencies, client dependencies, library, and client in your local directory. The ``-d`` flag only has to be used once. For subsequent invocations of ``rmake.py``, it is not necessary to rebuild the dependencies."
+   "``python3 rmake.py -c``", "Build the library and client in your local directory. It is assumed the dependencies have been built."
+   "``python3 rmake.py -idc``", "Build the library dependencies, client dependencies, library, and client, then build and install the hipBLAS package. You will be prompted for administrator access. To install hipBLAS for all users, use the ``-i`` flag. To restrict hipBLAS to your local directory, do not use the ``-i`` flag."
+   "``python3 rmake.py -ic``", "Build and install the hipBLAS package and build the client. You will be prompted for administrator access. This installs it for all users. To restrict hipBLAS to your local directory, do not use the ``-i`` flag."
 
 Dependencies for building the library
-==================================
+=====================================
 
 Use ``rmake.py`` with the ``-d`` option to install the dependencies required to build the library.
 This does not install the hipblas-common, rocBLAS, rocSOLVER, rocSPARSE, and rocPRIM dependencies.
 When building hipBLAS, it is important to take note of the version dependencies for other libraries. The hipblas-common,
 rocBLAS, and rocSOLVER versions required to build for an AMD backend are listed in the top-level ``CMakeLists.txt`` file.
 rocSPARSE and rocPRIM are currently dependencies of rocSOLVER. To build these libraries from source,
-please see the :doc:`rocBLAS Documentation <rocBLAS:index>`,
-:doc:`rocSOLVER Documentation <rocSOLVER:index>`, :doc:`rocSPARSE Documentation <rocSPARSE:index>`,
-and :doc:`rocPRIM Documentation <rocPRIM:index>`.
+see the :doc:`rocBLAS <rocblas:index>`,
+:doc:`rocSOLVER <rocsolver:index>`, :doc:`rocSPARSE <rocsparse:index>`,
+and :doc:`rocPRIM <rocprim:index>` documentation..
 
-CMake has a minimum version requirement, which is currently 3.16.8. See the ``--cmake_install`` flag in ``rmake.py`` to
+The minimum version of CMake is currently 3.16.8. See the ``--cmake_install`` flag in ``rmake.py`` to
 upgrade automatically.
 
-For the test and benchmark clients' host reference functions, you must manually download and install
-version 4.2 of AMD's `ILP64 version of the AOCL libraries <https://www.amd.com/en/developer/aocl.html>`_.
+To use the test and benchmark clients' host reference functions, you must manually download and install
+AMD's `ILP64 version of the AOCL libraries <https://www.amd.com/en/developer/aocl.html>`_ version 4.2.
 If you download and run the full Windows AOCL installer to the default location (``C:\Program Files\AMD\AOCL-Windows\``),
 then the AOCL reference BLAS (``amd-blis``) should be found by the clients' ``CMakeLists.txt`` file.
 
 .. note::
 
-If you only use the ``rmake.py -d`` dependency script and change the default CMake option ``LINK_BLIS=ON``,
-you might experience ``hipblas-test`` stress test failures due to 32-bit integer overflow
-on the host. To resolve this issue, exclude the stress tests using the command line argument ``--gtest_filter=-*stress*``.
+   If you only use the ``rmake.py -d`` dependency script and change the default CMake option ``LINK_BLIS=ON``,
+   you might experience ``hipblas-test`` stress test failures due to a 32-bit integer overflow
+   on the host. To resolve this issue, exclude the stress tests using the command line argument ``--gtest_filter=-*stress*``.
