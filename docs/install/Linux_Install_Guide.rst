@@ -9,6 +9,7 @@ Installing and building for Linux
 ***********************************
 
 This topic discusses how to install hipBLAS from a package and how to build and install it from the source code.
+For a list of installation prerequisites, see :doc:`hipBLAS prerequisites <prerequisites>`.
 
 Installing pre-built packages
 =============================
@@ -38,8 +39,8 @@ that you can override by invoking ``cmake`` directly. However, it's a great way 
 serves as an example of how to build and install hipBLAS.
 A few commands in the script require ``sudo`` access, so it might prompt you for a password.
 
-The install script determines the build platform by querying ``hipconfig --platform``. This value can be explicitly set
-using the environment variables ``HIP_PLATFORM=amd`` or ``HIP_PLATFORM=nvidia``.
+The install script determines the build platform by querying ``hipconfig --platform``. This value can be explicitly defined
+by setting the environment variable ``HIP_PLATFORM`` to ``HIP_PLATFORM=amd`` or ``HIP_PLATFORM=nvidia``.
 
 Common examples showing how to use ``rmake.py`` to build the library dependencies and library are listed
 in this table.

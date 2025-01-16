@@ -25,8 +25,6 @@ adhere to these guidelines:
 *  Do not break existing test cases.
 *  New unit tests should integrate with the existing GoogleTest framework.
 *  Tests must have good code coverage.
-*  Code must also have benchmark tests, and performance must approach
-   the compute-bound limit or memory-bound limit.
 
 Coding guidelines:
 ==================
@@ -64,7 +62,7 @@ To format a file, use:
 
     /opt/rocm/llvm/bin/clang-format -style=file -i <path-to-source-file>
 
-To format all files, run the following script in rocBLAS directory:
+To format all files, run the following script in hipBLAS directory:
 
 ::
 

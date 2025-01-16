@@ -9,6 +9,7 @@ Installing and building for Windows
 ***********************************
 
 This topic covers how to install hipBLAS on Windows from a package and how to build and install it from the source code.
+For a list of installation prerequisites, see :doc:`hipBLAS prerequisites <prerequisites>`.
 
 Installing pre-built packages
 =============================
